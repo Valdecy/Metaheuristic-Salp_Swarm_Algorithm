@@ -55,7 +55,7 @@ def update_position(position, food, c1 = 1, min_values = [-5,-5], max_values = [
             for j in range (0, len(min_values)):
                 c2 = int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1)
                 c3 = int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1)
-                if (c3 < 0.5):
+                if (c3 >= 0.5):
                     updated_position.iloc[i,j] = food.iloc[0,j] + c1*((max_values[j] - min_values[j])*c2 + min_values[j])
                     
                     if (updated_position.iloc[i,j] > max_values[j]):
