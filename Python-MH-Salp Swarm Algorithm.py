@@ -90,7 +90,7 @@ def salp_swarm_algorithm(swarm_size = 5, min_values = [-5,-5], max_values = [5,5
 
     while (count <= iterations):
         
-        print("Iteration = ", count)
+        print("Iteration = ", count, " f(x) = ", food.iloc[food['Fitness'].idxmin(),-1])
         
         c1 = 2*math.exp(-(4*(count/iterations))**2)
 
@@ -99,8 +99,8 @@ def salp_swarm_algorithm(swarm_size = 5, min_values = [-5,-5], max_values = [5,5
         
         count = count + 1 
         
-    print(position.iloc[position['Fitness'].idxmin(),:].copy(deep = True))    
-    return position.iloc[position['Fitness'].idxmin(),:].copy(deep = True)
+    print(food.iloc[food['Fitness'].idxmin(),:].copy(deep = True))    
+    return food.iloc[food['Fitness'].idxmin(),:].copy(deep = True)
 
 ######################## Part 1 - Usage ####################################
 
